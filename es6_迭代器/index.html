@@ -1,0 +1,41 @@
+<!--
+ * @Descripttion: 
+ * @Author: JLX
+ * @Date: 2022-07-12 10:16:39
+ * @LastEditors: JLX
+ * @LastEditTime: 2022-07-12 11:10:54
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 声明
+        const arr = ['名称', '名称2', '名称3']
+
+        // 使用for..of遍历
+        for (let i of arr) {
+            console.log(i);
+        }
+
+        let iterator = arr[Symbol.iterator]()
+
+        console.log(iterator);
+
+        /*
+           调用对象的next方法
+           通过不断调用next方法，指向下一个元素
+           返回
+        */
+        console.log(iterator.next());
+    </script>
+</body>
+
+</html>

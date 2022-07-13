@@ -1,0 +1,60 @@
+<!--
+ * @Descripttion: 
+ * @Author: JLX
+ * @Date: 2022-07-12 11:36:21
+ * @LastEditors: JLX
+ * @LastEditTime: 2022-07-12 11:42:20
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 模拟获取 用户数据 订单数据 
+        function getUsers() {
+            setTimeout(() => {
+                let data = '用户数据'
+                    // 调用next方法并将数据传入
+                iterator.next(data)
+            }, 1000)
+        }
+
+        function getOrders() {
+            setTimeout(() => {
+                let data = '订单数据'
+                    // 调用next方法并将数据传入
+                iterator.next(data)
+            }, 1000)
+        }
+
+        function getGoods() {
+            setTimeout(() => {
+                let data = '商品数据'
+                    // 调用next方法并将数据传入
+                iterator.next(data)
+            }, 1000)
+        }
+
+        function* gen() {
+            let users = yield getUsers()
+            console.log(users);
+            let order = yield getOrders()
+            console.log(order);
+            let goods = yield getGoods()
+            console.log(goods);
+        }
+
+        // 调用
+        let iterator = gen()
+        iterator.next()
+    </script>
+</body>
+
+</html>

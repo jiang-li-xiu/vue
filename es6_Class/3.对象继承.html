@@ -1,0 +1,87 @@
+<!--
+ * @Descripttion: 
+ * @Author: JLX
+ * @Date: 2022-07-13 09:03:15
+ * @LastEditors: JLX
+ * @LastEditTime: 2022-07-13 09:20:55
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.es5构造函数实现继承
+        function Phone(brand, price) {
+            this.brand = brand;
+            this.price = price;
+        }
+
+        // 添加方法
+        Phone.prototype.call = function() {
+            console.log('打电话');
+        }
+
+        // 智能手机
+        function SmartPhone(brand, price, color, size) {
+            Phone.call(this, brand, price)
+            this.color = color;
+            this.size = size
+        }
+
+        // 设置子级构造函数的原型
+        SmartPhone.prototype = new Phone;
+        SmartPhone.prototype.constructor = SmartPhone
+
+        // 声明子类的方法
+        SmartPhone.prototype.photo = function() {
+            console.log('拍照');
+        }
+
+        const chuizi = new SmartPhone('名字', 2499, '黑', '5.5')
+        console.log(chuizi);
+
+
+
+        // 2.类继承
+        class Phones {
+            // 构造函数
+            constructor(brand, price) {
+                    this.brand = brand;
+                    this.price = price
+                }
+                // 父类成员属性
+            call() {
+                console.log('打电话');
+            }
+        }
+
+        // 继承Phones extends关键字
+        class SmartPhones extends Phones {
+            // 构造方法
+            constructor(brand, price, color, size) {
+                // super关键字
+                super(brand, price) //  Phone.call(this, brand, price)一样效果
+                this.color = color
+                this.size = size
+            }
+            Photo() {
+                console.log('拍照');
+            }
+        }
+
+        // 实例化对象
+        const xiaomi = new SmartPhones('名字', 2499, '黑', '5.5')
+        console.log(xiaomi);
+        xiaomi.call()
+        xiaomi.Photo()
+    </script>
+</body>
+
+</html>

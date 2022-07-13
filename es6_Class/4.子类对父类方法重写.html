@@ -1,0 +1,59 @@
+<!--
+ * @Descripttion: 
+ * @Author: JLX
+ * @Date: 2022-07-13 09:03:15
+ * @LastEditors: JLX
+ * @LastEditTime: 2022-07-13 09:24:09
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Phones {
+            // 构造函数
+            constructor(brand, price) {
+                    this.brand = brand;
+                    this.price = price
+                }
+                // 父类成员属性
+            call() {
+                console.log('打电话');
+            }
+        }
+
+        // 继承Phones extends关键字
+        class SmartPhones extends Phones {
+            // 构造方法
+            constructor(brand, price, color, size) {
+                // super关键字
+                super(brand, price) //  Phone.call(this, brand, price)一样效果
+                this.color = color
+                this.size = size
+            }
+            Photo() {
+                    console.log('拍照');
+                }
+                // 重写父类方法
+                // 子类不能调父类同名的方法 super(call())
+            call() {
+                console.log('我重写了打电话方法');
+            }
+        }
+
+        // 实例化对象
+        const xiaomi = new SmartPhones('名字', 2499, '黑', '5.5')
+        console.log(xiaomi);
+        xiaomi.call()
+        xiaomi.Photo()
+    </script>
+</body>
+
+</html>

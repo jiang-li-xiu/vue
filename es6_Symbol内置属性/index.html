@@ -1,0 +1,33 @@
+<!--
+ * @Descripttion: 
+ * @Author: JLX
+ * @Date: 2022-07-12 09:36:39
+ * @LastEditors: JLX
+ * @LastEditTime: 2022-07-12 09:39:01
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Symbol.hasInstance 可以自己用控制检测类型
+        class Person {
+            static[Symbol.hasInstance](param) {
+                console.log(param);
+                console.log('被用来检测类型');
+            }
+        }
+
+        let o = {}
+        console.log(o instanceof Person);
+    </script>
+</body>
+
+</html>

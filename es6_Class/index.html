@@ -1,0 +1,57 @@
+<!--
+ * @Descripttion: 
+ * @Author: JLX
+ * @Date: 2022-07-13 08:49:04
+ * @LastEditors: JLX
+ * @LastEditTime: 2022-07-13 08:55:27
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //
+        function Phone(brand, price) {
+            this.brand = brand;
+            this.price = price;
+        }
+
+        // 添加方法
+        Phone.prototype.call = function() {
+            console.log('打电话');
+        }
+
+        // 实例化对象
+        let apple = new Phone('11', 5999)
+        apple.call()
+        console.log(apple);
+
+
+        // calss实现
+        class Phones {
+            // 构造方法
+            constructor(brand, price) {
+                this.brand = brand;
+                this.price = price;
+            }
+
+            // 方法 必须使用该语法
+            call() {
+                console.log('打电话');
+            }
+        }
+
+        let onePlus = new Phones('1+', 5999)
+        onePlus.call()
+        console.log(onePlus);
+    </script>
+</body>
+
+</html>

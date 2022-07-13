@@ -1,0 +1,36 @@
+<!--
+ * @Descripttion: 
+ * @Author: JLX
+ * @Date: 2022-07-12 11:20:52
+ * @LastEditors: JLX
+ * @LastEditTime: 2022-07-12 11:28:04
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 生成器其实就是一个特殊的函数
+
+        function* gen(arg) {
+            console.log(arg);
+            let one = yield '函数代码的分隔符';
+            yield '调一次next，执行一次'
+        }
+
+        let iterator = gen('AAA')
+        console.log(iterator.next());
+
+        // next方法可以传入实参
+        console.log(iterator.next('BBB'));
+    </script>
+</body>
+
+</html>

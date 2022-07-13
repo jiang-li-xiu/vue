@@ -1,0 +1,93 @@
+<!--
+ * @Descripttion: 
+ * @Author: JLX
+ * @Date: 2022-07-12 16:01:28
+ * @LastEditors: JLX
+ * @LastEditTime: 2022-07-12 17:40:13
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 声明set
+        let s = new Set(['去重', 'hh', '去重', 'xxx'])
+        console.log(s);
+
+        // 元素个数
+        console.log(s.size);
+
+        // 添加新元素
+        s.add('hhhhhh')
+
+        // 删除
+        s.delete('hh')
+
+        //检测 有返回true
+        s.has('xxx')
+
+        // 清空
+        s.clear
+
+        // 可遍历
+        for (let i of s) {
+            console.log(i);
+        }
+
+        //1.数组去重
+        let arr = [1, 2, 3, 5, 68, 89, 4, 1]
+            // let result = [...new Set(s)]
+
+        // 2.交集
+        let arr2 = [4, 5, 7, 7, 4, 568, 8, ]
+        let result = [...new Set(s)].filter(item => {
+            let s2 = new Set(arr2)
+            if (s2.has(item)) {
+                return true
+            } else {
+                return false
+            }
+        })
+
+        let result2 = [...new Set(arr)].filter(item => new Set(arr2).has(item))
+
+
+
+        // 深拷贝
+        const copyObj = (obj = {}) => {
+            let newobj = null;
+
+            // 判断是否需要进行递归
+            if (typeof(obj) == 'object' && obj !== null) {
+                newobj = obj instanceof Array ? [] : {}
+                for (var i in obj) {
+                    newobj[i] = copyObj(obj[i])
+                }
+            } else {
+                newobj = obj
+            }
+            return newobj
+        }
+
+        let objcopy = {
+            name: '名称',
+            stus: [
+                '1',
+                '2', {
+                    age: '17'
+                }
+            ]
+        }
+
+        console.log(copyObj(objcopy));
+    </script>
+</body>
+
+</html>

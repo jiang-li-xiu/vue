@@ -1,0 +1,40 @@
+<!--
+ * @Descripttion: 
+ * @Author: JLX
+ * @Date: 2022-07-12 11:44:35
+ * @LastEditors: JLX
+ * @LastEditTime: 2022-07-13 11:13:32
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 实例化
+        const p = new Promise(function(resolve, reject) {
+            setTimeout(() => {
+                let data = '数据'
+                resolve(data)
+
+                let err = '失败'
+                reject(err)
+            }, 1000);
+        })
+
+        // 调用promise对象的then方法
+        p.then(function(value) {
+            console.log(value);
+        }, function(reason) {
+            console.error(reason)
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!--
+ * @Descripttion: 
+ * @Author: JLX
+ * @Date: 2022-07-13 15:07:35
+ * @LastEditors: JLX
+ * @LastEditTime: 2022-07-13 15:12:01
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 创建promise对象
+        const p = new Promise((resovle, reject) => {
+            // resovle('成功')
+            reject('失败')
+        })
+
+        // await
+        async function main() {
+            // try catch捕获异常
+            try {
+                let result = await p;
+                console.log(result);
+            } catch (e) {
+                console.log(e);
+            }
+
+        }
+
+        // 调用
+        main()
+    </script>
+</body>
+
+</html>
